@@ -14,8 +14,8 @@ import android.view.Menu;
 import android.view.View;
 
 public class DatabaseActivity extends Activity {
-		private FeedReaderDbHelper mDbHelper;
-		private SQLiteDatabase db;
+	private FeedReaderDbHelper mDbHelper;
+	private SQLiteDatabase db;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
