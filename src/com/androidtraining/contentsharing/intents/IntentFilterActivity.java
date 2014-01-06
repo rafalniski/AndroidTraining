@@ -1,4 +1,4 @@
-package com.androidtraining.gettingstarted.intents;
+package com.androidtraining.contentsharing.intents;
 
 import android.app.Activity;
 import android.content.Intent;

@@ -1,4 +1,4 @@
-package com.androidtraining.gettingstarted.intents;
+package com.androidtraining.contentsharing.intents;
 
 import java.util.ArrayList;
 import java.util.Calendar;

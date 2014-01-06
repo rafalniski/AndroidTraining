@@ -1,4 +1,4 @@
-package com.androidtraining.gettingstarted.filesharing;
+package com.androidtraining.contentsharing.filesharing;
 
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;

@@ -60,15 +60,15 @@
             android:label="@string/title_activity_database" >
         </activity>
         <activity
-            android:name="com.androidtraining.gettingstarted.intents.IntentActivity"
+            android:name="com.androidtraining.contentsharing.intents.IntentActivity"
             android:label="@string/title_activity_intent" >
         </activity>
         <activity
-            android:name="com.androidtraining.gettingstarted.intents.IntentResultActivity"
+            android:name="com.androidtraining.contentsharing.intents.IntentResultActivity"
             android:label="@string/title_activity_intent_result" >
         </activity>
         <activity
-            android:name="com.androidtraining.gettingstarted.intents.IntentFilterActivity"
+            android:name="com.androidtraining.contentsharing.intents.IntentFilterActivity"
             android:label="@string/title_activity_intent_filter" >
             <intent-filter>
                 <action android:name="android.intent.action.SENDTO" />
@@ -89,7 +89,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.androidtraining.gettingstarted.filesharing.FileSelectActivity"
+            android:name="com.androidtraining.contentsharing.filesharing.FileSelectActivity"
             android:label="@string/title_activity_file_select" >
             <intent-filter>
                 <action android:name="android.intent.action.PICK" />
@@ -102,7 +102,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.androidtraining.gettingstarted.filesharing.RequestFileActivity"
+            android:name="com.androidtraining.contentsharing.filesharing.RequestFileActivity"
             android:label="@string/title_activity_request_file" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -111,11 +111,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.androidtraining.gettingstarted.nfc.SendingFileByNFCActivity"
+            android:name="com.androidtraining.contentsharing.nfc.SendingFileByNFCActivity"
             android:label="@string/title_activity_sending_file_by_nfc" >
         </activity>
         <activity
-            android:name="com.androidtraining.gettingstarted.nfc.ReceivingFileByNFCActivity"
+            android:name="com.androidtraining.contentsharing.nfc.ReceivingFileByNFCActivity"
             android:label="@string/title_activity_receiving_file_by_nfc" >
             <intent-filter>
             <action android:name="android.intent.action.VIEW"/>

@@ -1,4 +1,4 @@
-package com.androidtraining.gettingstarted.nfc;
+package com.androidtraining.contentsharing.nfc;
 
 import java.io.File;
 
