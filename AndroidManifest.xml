@@ -7,20 +7,120 @@
     <uses-sdk
         android:minSdkVersion="15"
         android:targetSdkVersion="19" />
-
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
+    
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.NFC" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/CustomActionBarTheme" >
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.androidtraining.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
         <activity
             android:name="com.androidtraining.MainActivity"
             android:label="@string/app_name" >
+        </activity>
+        <activity android:name="com.androidtraining.gettingstarted.actionbar.SimpleUserInterfaceActivity" >
+        </activity>
+        <activity
+            android:name="com.androidtraining.gettingstarted.actionbar.DisplayMessageActivity"
+            android:parentActivityName="com.androidtraining.gettingstarted.actionbar.SimpleUserInterfaceActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.androidtraining.gettingstarted.actionbar.SimpleUserInterfaceActivity" />
+        </activity>
+        <activity
+            android:name="com.androidtraining.gettingstarted.actionbar.ActionBarActivityarActivity"
+            android:label="@string/title_activity_action_bar" >
+        </activity>
+        <activity android:name="com.androidtraining.gettingstarted.fragments.FragmentExampleActivity" >
+        </activity>
+        <activity
+            android:name="com.androidtraining.gettingstarted.savingdata.SharedPreferencesActivity"
+            android:label="@string/title_activity_shared_preferences" >
+        </activity>
+        <activity
+            android:name="com.androidtraining.gettingstarted.savingdata.SavingFilesActivity"
+            android:label="@string/title_activity_saving_files" >
+        </activity>
+        <activity
+            android:name="com.androidtraining.gettingstarted.savingdata.DatabaseActivity"
+            android:label="@string/title_activity_database" >
+        </activity>
+        <activity
+            android:name="com.androidtraining.gettingstarted.intents.IntentActivity"
+            android:label="@string/title_activity_intent" >
+        </activity>
+        <activity
+            android:name="com.androidtraining.gettingstarted.intents.IntentResultActivity"
+            android:label="@string/title_activity_intent_result" >
+        </activity>
+        <activity
+            android:name="com.androidtraining.gettingstarted.intents.IntentFilterActivity"
+            android:label="@string/title_activity_intent_filter" >
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="sms" />
+                <data android:scheme="smsto" />
+            </intent-filter>
+            <!-- filter for sending text or images; accepts SEND action and text or image data -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="image/*" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.androidtraining.gettingstarted.filesharing.FileSelectActivity"
+            android:label="@string/title_activity_file_select" >
+            <intent-filter>
+                <action android:name="android.intent.action.PICK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.OPENABLE" />
+
+                <data android:mimeType="text/plain" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.androidtraining.gettingstarted.filesharing.RequestFileActivity"
+            android:label="@string/title_activity_request_file" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.androidtraining.gettingstarted.nfc.SendingFileByNFCActivity"
+            android:label="@string/title_activity_sending_file_by_nfc" >
+        </activity>
+        <activity
+            android:name="com.androidtraining.gettingstarted.nfc.ReceivingFileByNFCActivity"
+            android:label="@string/title_activity_receiving_file_by_nfc" >
+            <intent-filter>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+        </intent-filter>
         </activity>
     </application>
 

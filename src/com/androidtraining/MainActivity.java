@@ -1,5 +1,10 @@
 package com.androidtraining;
 
+import com.androidtraining.R;
+import com.androidtraining.R.layout;
+import com.androidtraining.R.menu;
+import com.androidtraining.gettingstarted.actionbar.SimpleUserInterfaceActivity;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+	
+    <!-- @ - require for every xml file object, 
+		 followed by resource type and slash.
+		 + sign is required when ID is defined
+		 for the first time. 
+	-->
+    <EditText
+        android:id="@+id/edit_message" 
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+       	android:layout_weight="1"
+        android:ems="10"
+        android:hint="@string/edit_message" >
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/send_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/button_send"/>
+
+</LinearLayout>

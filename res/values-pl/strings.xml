@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Android Training</string>
+    <string name="action_settings">Ustawienia</string>
+    <string name="hello_world">Witaj Świecie!</string>
+    <string name="edit_message">Edytuj wiadomość</string>
+    <string name="button_send">Wyślij</string>
+    <string name="title_activity_action_bar">ActionBarActivity</string>
+    <string name="action_search">Szukaj</string>
+
+</resources>

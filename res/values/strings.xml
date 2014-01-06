@@ -4,5 +4,21 @@
     <string name="app_name">Android Training</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="edit_message">Edit message</string>
+    <string name="button_send">Send</string>
+    <string name="title_activity_action_bar">ActionBarActivity</string>
+    <string name="action_search">Search</string>
+    <string name="title_activity_fragment_class">FragmentClass</string>
+    <string name="title_activity_shared_preferences">SharedPreferencesActivity</string>
+    <string name="preference_file_key">com.androidtraining.PREFERENCE_KEY_FILE</string>
+    <string name="title_activity_saving_files">SavingFilesActivity</string>
+    <string name="title_activity_database">DatabaseActivity</string>
+    <string name="title_activity_intent">IntentActivity</string>
+    <string name="title_activity_intent_result">IntentResultActivity</string>
+    <string name="title_activity_intent_filter">IntentFilterActivity</string>
+    <string name="title_activity_file_select">FileSelectActivity</string>
+    <string name="title_activity_request_file">RequestFileActivity</string>
+    <string name="title_activity_sending_file_by_nfc">SendingFileByNFCActivity</string>
+    <string name="title_activity_receiving_file_by_nfc">ReceivingFileByNFCActivity</string>
 
 </resources>
