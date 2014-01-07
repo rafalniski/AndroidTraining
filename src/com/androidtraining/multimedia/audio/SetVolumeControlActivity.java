@@ -1,4 +1,4 @@
-package com.androidtraining.multimedia;
+package com.androidtraining.multimedia.audio;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;

@@ -131,7 +131,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.androidtraining.multimedia.SetVolumeControlActivity"
+            android:name="com.androidtraining.multimedia.audio.SetVolumeControlActivity"
             android:label="@string/title_activity_set_volume_control" >
             
             
