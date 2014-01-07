@@ -58,11 +58,12 @@ public final class R {
         public static final int activity_request_file=0x7f030008;
         public static final int activity_saving_files=0x7f030009;
         public static final int activity_sending_file_by_nfc=0x7f03000a;
-        public static final int activity_shared_preferences=0x7f03000b;
-        public static final int article_view=0x7f03000c;
-        public static final int displaymessage=0x7f03000d;
-        public static final int news_articles=0x7f03000e;
-        public static final int simpleuserinterface=0x7f03000f;
+        public static final int activity_set_volume_control=0x7f03000b;
+        public static final int activity_shared_preferences=0x7f03000c;
+        public static final int article_view=0x7f03000d;
+        public static final int displaymessage=0x7f03000e;
+        public static final int news_articles=0x7f03000f;
+        public static final int simpleuserinterface=0x7f030010;
     }
     public static final class menu {
         public static final int action_bar=0x7f090000;
@@ -77,7 +78,8 @@ public final class R {
         public static final int request_file=0x7f090009;
         public static final int saving_files=0x7f09000a;
         public static final int sending_file_by_nfc=0x7f09000b;
-        public static final int shared_preferences=0x7f09000c;
+        public static final int set_volume_control=0x7f09000c;
+        public static final int shared_preferences=0x7f09000d;
     }
     public static final class string {
         public static final int action_search=0x7f070006;
@@ -98,6 +100,7 @@ public final class R {
         public static final int title_activity_request_file=0x7f070010;
         public static final int title_activity_saving_files=0x7f07000a;
         public static final int title_activity_sending_file_by_nfc=0x7f070011;
+        public static final int title_activity_set_volume_control=0x7f070013;
         public static final int title_activity_shared_preferences=0x7f070008;
     }
     public static final class style {

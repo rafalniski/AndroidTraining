@@ -20,5 +20,6 @@
     <string name="title_activity_request_file">RequestFileActivity</string>
     <string name="title_activity_sending_file_by_nfc">SendingFileByNFCActivity</string>
     <string name="title_activity_receiving_file_by_nfc">ReceivingFileByNFCActivity</string>
+    <string name="title_activity_set_volume_control">SetVolumeControlActivity</string>
 
 </resources>
