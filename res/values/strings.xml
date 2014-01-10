@@ -21,5 +21,7 @@
     <string name="title_activity_sending_file_by_nfc">SendingFileByNFCActivity</string>
     <string name="title_activity_receiving_file_by_nfc">ReceivingFileByNFCActivity</string>
     <string name="title_activity_set_volume_control">SetVolumeControlActivity</string>
+    <string name="title_activity_camera">CameraActivity</string>
+    <string name="title_activity_controlling_camera">ControllingCameraActivity</string>
 
 </resources>
