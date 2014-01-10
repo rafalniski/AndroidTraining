@@ -149,6 +149,18 @@
             android:name="com.androidtraining.multimedia.photos.ControllingCameraActivity"
             android:label="@string/title_activity_controlling_camera" >
         </activity>
+        <activity
+            android:name="com.androidtraining.multimedia.printing.PrintingImagesActiivty"
+            android:label="@string/title_activity_printing_images_actiivty" >
+        </activity>
+        <activity
+            android:name="com.androidtraining.multimedia.printing.PrintingHtmlDocumentActivity"
+            android:label="@string/title_activity_printing_html_document" >
+        </activity>
+        <activity
+            android:name="com.androidtraining.multimedia.printing.CustomDocumentPrinting"
+            android:label="@string/title_activity_custom_document_printing" >
+        </activity>
     </application>
 
 </manifest>

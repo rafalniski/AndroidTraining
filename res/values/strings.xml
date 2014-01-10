@@ -23,5 +23,8 @@
     <string name="title_activity_set_volume_control">SetVolumeControlActivity</string>
     <string name="title_activity_camera">CameraActivity</string>
     <string name="title_activity_controlling_camera">ControllingCameraActivity</string>
+    <string name="title_activity_printing_images_actiivty">PrintingImagesActiivty</string>
+    <string name="title_activity_printing_html_document">PrintingHtmlDocumentActivity</string>
+    <string name="title_activity_custom_document_printing">CustomDocumentPrinting</string>
 
 </resources>
