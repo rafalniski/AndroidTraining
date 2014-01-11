@@ -30,22 +30,23 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_search=0x7f0a000e;
-        public static final int action_settings=0x7f0a000f;
-        public static final int article=0x7f0a0006;
-        public static final int article_fragment=0x7f0a000a;
-        public static final int button1=0x7f0a0005;
+        public static final int action_search=0x7f0a000f;
+        public static final int action_settings=0x7f0a0010;
+        public static final int article=0x7f0a0007;
+        public static final int article_fragment=0x7f0a000b;
+        public static final int button1=0x7f0a0006;
         public static final int done=0x7f0a0002;
-        public static final int edit_message=0x7f0a000b;
-        public static final int fragment_container=0x7f0a0008;
-        public static final int headlines_fragment=0x7f0a0009;
+        public static final int edit_message=0x7f0a000c;
+        public static final int fragment_container=0x7f0a0009;
+        public static final int headlines_fragment=0x7f0a000a;
         public static final int imageView=0x7f0a0000;
         public static final int list=0x7f0a0001;
-        public static final int menu_item_share=0x7f0a000d;
-        public static final int message=0x7f0a0007;
-        public static final int name=0x7f0a0003;
-        public static final int send_message=0x7f0a000c;
-        public static final int size=0x7f0a0004;
+        public static final int mImageView=0x7f0a0003;
+        public static final int menu_item_share=0x7f0a000e;
+        public static final int message=0x7f0a0008;
+        public static final int name=0x7f0a0004;
+        public static final int send_message=0x7f0a000d;
+        public static final int size=0x7f0a0005;
     }
     public static final class layout {
         public static final int activity_action_bar=0x7f030000;
@@ -57,19 +58,20 @@ public final class R {
         public static final int activity_intent=0x7f030006;
         public static final int activity_intent_filter=0x7f030007;
         public static final int activity_intent_result=0x7f030008;
-        public static final int activity_main=0x7f030009;
-        public static final int activity_printing_html_document=0x7f03000a;
-        public static final int activity_printing_images_actiivty=0x7f03000b;
-        public static final int activity_receiving_file_by_nfc=0x7f03000c;
-        public static final int activity_request_file=0x7f03000d;
-        public static final int activity_saving_files=0x7f03000e;
-        public static final int activity_sending_file_by_nfc=0x7f03000f;
-        public static final int activity_set_volume_control=0x7f030010;
-        public static final int activity_shared_preferences=0x7f030011;
-        public static final int article_view=0x7f030012;
-        public static final int displaymessage=0x7f030013;
-        public static final int news_articles=0x7f030014;
-        public static final int simpleuserinterface=0x7f030015;
+        public static final int activity_loading_bitmaps=0x7f030009;
+        public static final int activity_main=0x7f03000a;
+        public static final int activity_printing_html_document=0x7f03000b;
+        public static final int activity_printing_images_actiivty=0x7f03000c;
+        public static final int activity_receiving_file_by_nfc=0x7f03000d;
+        public static final int activity_request_file=0x7f03000e;
+        public static final int activity_saving_files=0x7f03000f;
+        public static final int activity_sending_file_by_nfc=0x7f030010;
+        public static final int activity_set_volume_control=0x7f030011;
+        public static final int activity_shared_preferences=0x7f030012;
+        public static final int article_view=0x7f030013;
+        public static final int displaymessage=0x7f030014;
+        public static final int news_articles=0x7f030015;
+        public static final int simpleuserinterface=0x7f030016;
     }
     public static final class menu {
         public static final int action_bar=0x7f090000;
@@ -82,15 +84,16 @@ public final class R {
         public static final int intent=0x7f090007;
         public static final int intent_filter=0x7f090008;
         public static final int intent_result=0x7f090009;
-        public static final int main=0x7f09000a;
-        public static final int printing_html_document=0x7f09000b;
-        public static final int printing_images_actiivty=0x7f09000c;
-        public static final int receiving_file_by_nfc=0x7f09000d;
-        public static final int request_file=0x7f09000e;
-        public static final int saving_files=0x7f09000f;
-        public static final int sending_file_by_nfc=0x7f090010;
-        public static final int set_volume_control=0x7f090011;
-        public static final int shared_preferences=0x7f090012;
+        public static final int loading_bitmaps=0x7f09000a;
+        public static final int main=0x7f09000b;
+        public static final int printing_html_document=0x7f09000c;
+        public static final int printing_images_actiivty=0x7f09000d;
+        public static final int receiving_file_by_nfc=0x7f09000e;
+        public static final int request_file=0x7f09000f;
+        public static final int saving_files=0x7f090010;
+        public static final int sending_file_by_nfc=0x7f090011;
+        public static final int set_volume_control=0x7f090012;
+        public static final int shared_preferences=0x7f090013;
     }
     public static final class string {
         public static final int action_search=0x7f070006;
@@ -110,6 +113,7 @@ public final class R {
         public static final int title_activity_intent=0x7f07000c;
         public static final int title_activity_intent_filter=0x7f07000e;
         public static final int title_activity_intent_result=0x7f07000d;
+        public static final int title_activity_loading_bitmaps=0x7f070019;
         public static final int title_activity_printing_html_document=0x7f070017;
         public static final int title_activity_printing_images_actiivty=0x7f070016;
         public static final int title_activity_receiving_file_by_nfc=0x7f070012;

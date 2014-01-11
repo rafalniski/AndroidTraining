@@ -161,6 +161,10 @@
             android:name="com.androidtraining.multimedia.printing.CustomDocumentPrinting"
             android:label="@string/title_activity_custom_document_printing" >
         </activity>
+        <activity
+            android:name="com.androidtraining.graphics.bitmaps.LoadingBitmapsActivity"
+            android:label="@string/title_activity_loading_bitmaps" >
+        </activity>
     </application>
 
 </manifest>
