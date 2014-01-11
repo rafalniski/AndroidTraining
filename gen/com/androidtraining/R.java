@@ -14,6 +14,8 @@ public final class R {
         public static final int black=0x7f050003;
         public static final int blue=0x7f050002;
         public static final int green=0x7f050001;
+        public static final int grid_state_focused=0x7f050005;
+        public static final int grid_state_pressed=0x7f050004;
         public static final int red=0x7f050000;
     }
     public static final class dimen {
@@ -25,27 +27,34 @@ public final class R {
          */
         public static final int activity_horizontal_margin=0x7f060000;
         public static final int activity_vertical_margin=0x7f060001;
+        public static final int image_detail_pager_margin=0x7f060004;
+        public static final int image_thumbnail_size=0x7f060002;
+        public static final int image_thumbnail_spacing=0x7f060003;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int bunny=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
+        public static final int photogrid_list_selector=0x7f020002;
     }
     public static final class id {
-        public static final int action_search=0x7f0a000f;
-        public static final int action_settings=0x7f0a0010;
+        public static final int action_search=0x7f0a0011;
+        public static final int action_settings=0x7f0a0012;
         public static final int article=0x7f0a0007;
-        public static final int article_fragment=0x7f0a000b;
+        public static final int article_fragment=0x7f0a000d;
         public static final int button1=0x7f0a0006;
         public static final int done=0x7f0a0002;
-        public static final int edit_message=0x7f0a000c;
-        public static final int fragment_container=0x7f0a0009;
-        public static final int headlines_fragment=0x7f0a000a;
+        public static final int edit_message=0x7f0a000e;
+        public static final int fragment_container=0x7f0a000b;
+        public static final int gridView=0x7f0a000a;
+        public static final int headlines_fragment=0x7f0a000c;
         public static final int imageView=0x7f0a0000;
         public static final int list=0x7f0a0001;
         public static final int mImageView=0x7f0a0003;
-        public static final int menu_item_share=0x7f0a000e;
+        public static final int menu_item_share=0x7f0a0010;
         public static final int message=0x7f0a0008;
         public static final int name=0x7f0a0004;
-        public static final int send_message=0x7f0a000d;
+        public static final int pager=0x7f0a0009;
+        public static final int send_message=0x7f0a000f;
         public static final int size=0x7f0a0005;
     }
     public static final class layout {
@@ -70,8 +79,11 @@ public final class R {
         public static final int activity_shared_preferences=0x7f030012;
         public static final int article_view=0x7f030013;
         public static final int displaymessage=0x7f030014;
-        public static final int news_articles=0x7f030015;
-        public static final int simpleuserinterface=0x7f030016;
+        public static final int image_detail_fragment=0x7f030015;
+        public static final int image_detail_pager=0x7f030016;
+        public static final int image_grid_fragment=0x7f030017;
+        public static final int news_articles=0x7f030018;
+        public static final int simpleuserinterface=0x7f030019;
     }
     public static final class menu {
         public static final int action_bar=0x7f090000;
@@ -150,14 +162,15 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f080001;
-        public static final int CustomActionBarTheme=0x7f080002;
-        public static final int MyActionBar=0x7f080003;
+        public static final int CustomActionBarTheme=0x7f080003;
+        public static final int MyActionBar=0x7f080004;
         /**  ActionBar tabs text styles 
          */
-        public static final int MyActionBarTabText=0x7f080005;
+        public static final int MyActionBarTabText=0x7f080006;
         /**  ActionBar title text 
          */
-        public static final int MyActionBarTitleText=0x7f080004;
+        public static final int MyActionBarTitleText=0x7f080005;
+        public static final int PhotoGridLayout=0x7f080002;
     }
     public static final class xml {
         public static final int filepaths=0x7f040000;

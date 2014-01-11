@@ -4,5 +4,6 @@
 <color name="green">#00ff00</color>
 <color name="blue">#0000ff</color>
 <color name="black">#000000</color>    
-
+   <color name="grid_state_pressed">#BB7dbcd3</color>
+    <color name="grid_state_focused">#777dbcd3</color>
 </resources>

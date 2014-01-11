@@ -1,31 +1,44 @@
 package com.androidtraining.graphics.bitmaps;
 
+import java.io.IOException;
 import java.lang.ref.WeakReference;
+import java.net.URL;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.support.v4.util.LruCache;
-import android.view.Menu;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.androidtraining.R;
+/**
+ * Class is loading bitmap from Uri, resizing it and putting in LRU memory cache.
+ * This is reference usage for putting images into ListView or GridVIew
+ * @author rafalniski
+ *
+ */
+public class EffectiveBitmapLoader {
 
-public class LoadingBitmapsActivity extends Activity {
-
-	private ImageView mImageView;
 	private Bitmap mLoadingBitmap;
+	private Context context;
 	private LruCache<String, Bitmap> mMemoryCache;
 	private DiskLruCache mDiskLruCache;
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_loading_bitmaps);
+	private final Object mDiskCacheLock = new Object();
+	private boolean mDiskCacheStarting = true;
+	private static final int DISK_CACHE_SIZE = 1024 * 1024 * 10; // 10MB
+	private static final String DISK_CACHE_SUBDIR = "thumbnails";
+	public EffectiveBitmapLoader(Context ctx) {
+		this.context = ctx;
+		mLoadingBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_launcher);
+		/*
+		 * Initiating memory cache
+		 */
 		// get max available VM memory, exceeding this amout will throw
 		// an outofmemory exception.Stored in kbytes as LruCahce takes an int in its constructor
 		final int maxMemory = (int) Runtime.getRuntime().maxMemory()/1024;
@@ -38,45 +51,28 @@ public class LoadingBitmapsActivity extends Activity {
 				return bitmap.getByteCount() / 1024;
 			}
 		};
-		
-		mImageView = (ImageView) findViewById(R.id.mImageView);
-		// sample usage
-		//getDrawable(resId)
-		
 	}
-	public void loadBitmap(int resId, ImageView imageView) {
-	    final String imageKey = String.valueOf(resId);
-
-	    final Bitmap bitmap = getBitmapFromMemCache(imageKey);
-	    if (bitmap != null) {
-	        mImageView.setImageBitmap(bitmap);
-	    } else {
-	        mImageView.setImageResource(R.drawable.ic_launcher);
-	        BitmapWorkerTask task = new BitmapWorkerTask(mImageView);
-	        task.execute(resId);
-	    }
-	}
-	public void addBitmapToMemoryCache(String key, Bitmap bitmap) {
+	private void addBitmapToMemCache(String key, Bitmap bitmap) {
 		if(getBitmapFromMemCache(key) == null) {
 			mMemoryCache.put(key, bitmap);
 		}
 	}
-	public Bitmap getBitmapFromMemCache(String key) {
+	private Bitmap getBitmapFromMemCache(String key) {
 		return mMemoryCache.get(key);
 	}
-	public void getDrawable(int resId) {
-		if(cancelPotentialWork(mImageView)) {
-			BitmapWorkerTask task = new BitmapWorkerTask(mImageView);
-			final AsyncDrawable asyncDrawable = new AsyncDrawable(getResources(), mLoadingBitmap, task);
-			mImageView.setImageDrawable(asyncDrawable);
-			task.execute(mImageView.getId());
+	public void loadBitmap(Uri resId, ImageView imageView, Bitmap loadingBitmap) {
+		if(cancelPotentialWork(resId, imageView)) {
+			final String imageKey = String.valueOf(resId);
+			final Bitmap bitmap = getBitmapFromMemCache(imageKey);
+			if(bitmap != null) {
+		        imageView.setImageBitmap(bitmap);
+			} else {
+				BitmapWorkerTask task = new BitmapWorkerTask(imageView);
+				final AsyncDrawable asyncDrawable = new AsyncDrawable(context.getResources(), loadingBitmap, task);
+				imageView.setImageDrawable(asyncDrawable);
+				task.execute(resId);
+			}
 		}
-	}
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.loading_bitmaps, menu);
-		return true;
 	}
 	
 	/**
@@ -85,11 +81,11 @@ public class LoadingBitmapsActivity extends Activity {
 	 * @param imageView
 	 * @return
 	 */
-	private static boolean cancelPotentialWork(ImageView imageView) {
+	private static boolean cancelPotentialWork(Uri data, ImageView imageView) {
 		final BitmapWorkerTask bitmapWorkerTask = getBitmapWorkerTask(imageView);
 		if(bitmapWorkerTask != null) {
-			final int bitmapData = bitmapWorkerTask.data;
-			if(bitmapData != imageView.getId()) {
+			final Uri bitmapData = bitmapWorkerTask.data;
+			if(bitmapData != data) {
 				// cancel previous task
 				bitmapWorkerTask.cancel(true);
 			} else {
@@ -121,7 +117,7 @@ public class LoadingBitmapsActivity extends Activity {
 	private void getBitmapDimensionsAndType() {
 		BitmapFactory.Options options = new BitmapFactory.Options();
 		options.inJustDecodeBounds = true;
-		BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher, options);
+		BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_launcher, options);
 		int imageHeight = options.outHeight;
 		int imageWidth = options.outWidth;
 		String imageType = options.outMimeType;
@@ -160,13 +156,16 @@ public class LoadingBitmapsActivity extends Activity {
 	 * @param reqWidth
 	 * @param reqHeight
 	 * @return
+	 * @throws IOException 
 	 */
-	private static Bitmap decodeSampleBitmapfromResource(Resources res, int resId, int reqWidth, int reqHeight) {
+	private static Bitmap decodeSampleBitmapfromResource(Resources res, Uri resId, int reqWidth, int reqHeight) throws IOException {
 		
 		// first decode with injustDecodeBounds = true to check dimensions
 		final BitmapFactory.Options options = new BitmapFactory.Options();
 		options.inJustDecodeBounds = true;
-		BitmapFactory.decodeResource(res, resId, options);
+		URL url = new URL(resId.toString());
+		BitmapFactory.decodeStream(url.openConnection().getInputStream(),null, options);
+		//BitmapFactory.decode(res, resId, options);
 		
 		// calculate inSampleSize
 		options.inSampleSize = calculateInSampleSize(options, reqHeight, reqWidth);
@@ -175,7 +174,7 @@ public class LoadingBitmapsActivity extends Activity {
 		// decode bitmap with inSampleSize set, remember to
 		// set inJustDecodeBounds to false
 		options.inJustDecodeBounds = false;
-		return BitmapFactory.decodeResource(res, resId, options);
+		return BitmapFactory.decodeStream(url.openConnection().getInputStream(),null, options);
 	}
 
 	
@@ -190,10 +189,10 @@ public class LoadingBitmapsActivity extends Activity {
 		    return null;
 	}
 	
-	private class BitmapWorkerTask extends AsyncTask<Integer, Void, Bitmap> {
+	private class BitmapWorkerTask extends AsyncTask<Uri, Void, Bitmap> {
 
 		private final WeakReference<ImageView> imageViewReference;
-		private int data = 0;
+		private Uri data = null;
 		
 		public BitmapWorkerTask(ImageView imageView) {
 			// there is no guarantee that ImageView is still around when the task finishes
@@ -201,10 +200,17 @@ public class LoadingBitmapsActivity extends Activity {
 		}
 		
 		@Override
-		protected Bitmap doInBackground(Integer... params) {
+		protected Bitmap doInBackground(Uri... params) {
 			data = params[0];
-			final Bitmap bitmap = decodeSampleBitmapfromResource(getResources(), data, 200, 200);
-			addBitmapToMemoryCache(String.valueOf(data), bitmap);
+			Bitmap bitmap = null;
+			try {
+				bitmap = decodeSampleBitmapfromResource(context.getResources(), data, 200, 200);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			addBitmapToMemCache(String.valueOf(data), bitmap);
+			Log.i("Memory cache", "Memory cache: " + mMemoryCache.toString());
 			return bitmap;
 		}
 		// Once complete, see if ImageView is still around and set bitmap.
@@ -216,7 +222,7 @@ public class LoadingBitmapsActivity extends Activity {
 	        if (imageViewReference != null && bitmap != null) {
 	            final ImageView imageView = imageViewReference.get();
 	            final BitmapWorkerTask bitmapWorkerTask = getBitmapWorkerTask(imageView);
-	            if (imageView != null) {
+	            if (this == bitmapWorkerTask && imageView != null) {
 	                imageView.setImageBitmap(bitmap);
 	            }
 	        }
