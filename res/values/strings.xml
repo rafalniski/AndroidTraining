@@ -27,5 +27,8 @@
     <string name="title_activity_printing_html_document">PrintingHtmlDocumentActivity</string>
     <string name="title_activity_custom_document_printing">CustomDocumentPrinting</string>
     <string name="title_activity_loading_bitmaps">LoadingBitmapsActivity</string>
+    <string name="title_activity_ogl">OglActivity</string>
+    <string name="title_activity_cross_fade">CrossFadeActivity</string>
+    <string name="title_activity_card_flip">CardFlipActivity</string>
 
 </resources>
